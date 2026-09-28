@@ -23,3 +23,21 @@ async function getProductById(id) {
     console.error('Error al obtener el producto:', error.message);
   }
 }
+
+async function createProduct(title, price, category) {
+  try {
+    const response = await fetch("https://fakestoreapi.com/products", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: title,
+        price: Number(price),
+        category: category
+      })
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error al crear el producto:', error.message);
+  }
+}
