@@ -13,3 +13,13 @@ async function getProducts() {
     console.error('Error al obtener productos:', error.message);
   }
 }
+
+async function getProductById(id) {
+  try {
+    const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error al obtener el producto:', error.message);
+  }
+}
