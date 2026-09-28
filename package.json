@@ -1,0 +1,20 @@
+{
+  "name": "pre-entrega-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estelucero/pre-entrega-node.git"
+  },
+  "keywords": [],
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/estelucero/pre-entrega-node/issues"
+  },
+  "homepage": "https://github.com/estelucero/pre-entrega-node#readme"
+}
