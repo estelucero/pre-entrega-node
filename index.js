@@ -41,3 +41,15 @@ async function createProduct(title, price, category) {
     console.error('Error al crear el producto:', error.message);
   }
 }
+
+async function deleteProduct(id) {
+  try {
+    const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
+      method: 'DELETE'
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error al eliminar el producto:', error.message);
+  }
+}
