@@ -1,3 +1,5 @@
+const URL_FAKESTORE = "https://fakestoreapi.com";
+
 async function getProducts() {
     try {
         const response = await fetch("https://fakestoreapi.com/products");
