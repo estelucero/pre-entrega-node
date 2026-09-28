@@ -1,8 +1,13 @@
-const URL_FAKESTORE = "URL_FAKESTORE";
+const URL_FAKESTORE = "https://fakestoreapi.com";
 
 async function getProducts() {
     try {
-        const response = await fetch("URL_FAKESTORE/products");
+        const response = await fetch(`${URL_FAKESTORE}/products`);
+        if (!response.ok) {
+            if (response.status === 523) {
+                throw new Error(`${response.status}, servidor caido`);
+            }
+        }
         const data = await response.json();
         console.log(data);
     } catch (error) {
@@ -12,7 +17,12 @@ async function getProducts() {
 
 async function getProductById(id) {
     try {
-        const response = await fetch(`URL_FAKESTORE/products/${id}`);
+        const response = await fetch(`${URL_FAKESTORE}/products/${id}`);
+        if (!response.ok) {
+            if (response.status === 523) {
+                throw new Error(`${response.status}, servidor caido`);
+            }
+        }
         const data = await response.json();
         console.log(data);
     } catch (error) {
@@ -22,7 +32,7 @@ async function getProductById(id) {
 
 async function createProduct(title, price, category) {
     try {
-        const response = await fetch("URL_FAKESTORE/products", {
+        const response = await fetch(`${URL_FAKESTORE}/products`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -31,6 +41,11 @@ async function createProduct(title, price, category) {
                 category: category,
             }),
         });
+        if (!response.ok) {
+            if (response.status === 523) {
+                throw new Error(`${response.status}, servidor caido`);
+            }
+        }
         const data = await response.json();
         console.log(data);
     } catch (error) {
@@ -40,9 +55,14 @@ async function createProduct(title, price, category) {
 
 async function deleteProduct(id) {
     try {
-        const response = await fetch(`URL_FAKESTORE/products/${id}`, {
+        const response = await fetch(`${URL_FAKESTORE}/products/${id}`, {
             method: "DELETE",
         });
+        if (!response.ok) {
+            if (response.status === 523) {
+                throw new Error(`${response.status}, servidor caido`);
+            }
+        }
         const data = await response.json();
         console.log(data);
     } catch (error) {
